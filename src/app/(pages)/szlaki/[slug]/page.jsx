@@ -30,7 +30,7 @@ export default async function Szlak({ params }) {
   const endCoords = szlak.attributes.KoniecSzlaku.coordinates;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 mt-24">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
