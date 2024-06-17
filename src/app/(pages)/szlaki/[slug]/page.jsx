@@ -3,6 +3,7 @@ import { fetchAPI } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb';
 import MapComponent from '@/app/_components/Map';
+import Content from '@/app/_components/content';
 
 
 export async function generateStaticParams() {
@@ -14,8 +15,8 @@ export async function generateStaticParams() {
 
 export default async function Szlak({ params }) {
   const { slug } = params;
-  const response = await fetchAPI(`/szlaki/${slug}`);
-  const szlak = response.data;
+  const response = await fetchAPI(`/szlaki?filters[slug][$eq]=${slug}&populate=*`);
+  const szlak = response.data[0];
 
   if (!szlak) {
     notFound();
@@ -23,7 +24,7 @@ export default async function Szlak({ params }) {
 
   const breadcrumbItems = [
     { href: '/szlaki', label: 'Szlaki' },
-    { href: `/${szlak.attributes.slug}`, label: szlak.attributes.tytul },
+    { href: `/szlaki/${szlak.attributes.slug}`, label: szlak.attributes.tytul },
   ];
 
   const startCoords = szlak.attributes.PoczatekSzlaku.coordinates;
@@ -42,13 +43,7 @@ export default async function Szlak({ params }) {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="text-4xl font-bold mb-4">{szlak.attributes.tytul}</h1>
-      <p className="text-xl mb-4">{szlak.attributes.opis}</p>
-      <div className="content mt-4">
-        {szlak.attributes.zawartosc && szlak.attributes.zawartosc.map((section, index) => (
-          <p key={index}>{section.children[0].text}</p>
-        ))}
-      </div>
+      <Content zawartosc={szlak.attributes.zawartosc} />
       <div className="mt-8">
         <MapComponent startCoords={startCoords} endCoords={endCoords} />
       </div>

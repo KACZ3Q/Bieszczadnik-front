@@ -30,7 +30,7 @@ export default function Szlaki() {
   }, [selectedDifficulty]);
 
   return (
-    <div className="container mx-auto p-4 mt-24">
+    <div className="container mx-auto p-4 mt-24 min-h-screen">
       <div className="mb-4 flex justify-end">
         <Select onValueChange={(value) => setSelectedDifficulty(value)}>
           <SelectTrigger className="w-[140px]">
