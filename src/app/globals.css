@@ -74,3 +74,15 @@
       @apply bg-background text-foreground;
     }
   }
+
+html, body {
+  -webkit-overflow-scrolling: touch;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;  /* Dla Internet Explorer i Edge */
+  scrollbar-width: none;     /* Dla Firefox */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none; /* Ukryj paski przewijania w przeglądarkach opartych na WebKit */
+}

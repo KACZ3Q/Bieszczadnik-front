@@ -3,7 +3,7 @@ import { fetchAPI } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb';
 import MapComponent from '@/app/_components/Map';
-import Content from '@/app/_components/content';
+import Content from '@/app/_components/Content';
 
 
 export async function generateStaticParams() {
