@@ -48,22 +48,25 @@ export function SigninForm() {
               />
               <ZodErrors error={formState?.zodErrors?.identifier} />
             </div>
-            <div className="space-y-2 relative">
-              <Label htmlFor="password">hasło</Label>
-              <Input
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="hasło"
-              />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                aria-label="toggle password visibility"
-                className="absolute right-2 top-1/2"
-              >
-                {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-500" /> : <FaEye className="h-5 w-5 text-gray-500" />}
-              </button>
+            <div className="space-y-2">
+              <Label htmlFor="password">Hasło</Label>
+              <div className="relative">
+                <Input
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="hasło"
+                  className="w-full pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  aria-label="toggle password visibility"
+                  className="absolute inset-y-0 right-2 flex items-center"
+                >
+                  {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-500" /> : <FaEye className="h-5 w-5 text-gray-500" />}
+                </button>
+              </div>
               <ZodErrors error={formState.zodErrors?.password} />
             </div>
           </CardContent>

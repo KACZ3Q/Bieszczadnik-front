@@ -58,21 +58,25 @@ export function SignupForm() {
               />
               <ZodErrors error={formState?.zodErrors?.email} />
             </div>
-            <div className="space-y-2 relative">
+            <div className="space-y-2">
               <Label htmlFor="password">Hasło</Label>
-              <Input
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="hasło"
-              />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute right-2 top-1/2 "
-              >
-                {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-500" /> : <FaEye className="h-5 w-5 text-gray-500" />}
-              </button>
+              <div className="relative">
+                <Input
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="hasło"
+                  className="flex-1 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  aria-label="toggle password visibility"
+                  className="absolute inset-y-0 right-2 flex items-center"
+                >
+                  {showPassword ? <FaEyeSlash className="h-5 w-5 text-gray-500" /> : <FaEye className="h-5 w-5 text-gray-500" />}
+                </button>
+              </div>
               <ZodErrors error={formState?.zodErrors?.password} />
             </div>
           </CardContent>
