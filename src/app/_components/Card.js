@@ -7,8 +7,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import LimitedContent from './LimitedContent';
+
 const SzlakCard = ({ szlak }) => {
-  const API_URL = process.env.STRAPI_API_URL || 'http://localhost:1338';
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1338';
   
   return (
     <Card>
@@ -25,13 +27,11 @@ const SzlakCard = ({ szlak }) => {
             alt={szlak.attributes.tytul}
           />
         )}
-        {szlak.attributes.opis}
+        <LimitedContent zawartosc={szlak.attributes.zawartosc} />
       </CardContent>
-      <CardFooter>
+      <CardFooter className='underline'>
         <Link href={`/szlaki/${szlak.attributes.slug}`}>
-          <u>
             Czytaj więcej
-          </u>
         </Link>
       </CardFooter>
     </Card>

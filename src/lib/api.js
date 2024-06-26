@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { getStrapiURL } from '@/lib/utils';
 
-const API_URL = process.env.STRAPI_API_URL || 'http://localhost:1338/api';
+const API_URL = getStrapiURL();
 
 export const fetchAPI = async (path) => {
   try {

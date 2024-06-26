@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Content = ({ zawartosc }) => {
   return (
     <div className="content mt-4">
