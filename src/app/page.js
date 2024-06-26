@@ -53,7 +53,7 @@ export default function Home() {
       <div className="container mx-auto py-24 px-4">
         
         <h2 className="text-3xl font-bold mb-8"> Niektóre z Szlaków</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {szlaki.map((szlak) => (
             <SzlakCard key={szlak.id} szlak={szlak} />
           ))}

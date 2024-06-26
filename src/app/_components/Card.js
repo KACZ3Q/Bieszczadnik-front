@@ -15,7 +15,7 @@ const SzlakCard = ({ szlak }) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
+        <CardTitle className="lg:text-2xl md:text-xl">
           {szlak.attributes.tytul}
         </CardTitle>
       </CardHeader>
