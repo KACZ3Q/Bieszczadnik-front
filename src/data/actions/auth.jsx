@@ -18,11 +18,15 @@ const config = {
 };
 
 const schemaRegister = z.object({
-  username: z.string().min(3).max(20, {
-    message: "Nazwa użytkownika musi mieć od 3 do 20 znaków",
+  username: z.string().min(3, {
+    message: "Nazwa użytkownika musi mieć co najmniej 3 znaki",
+  }).max(20, {
+    message: "Nazwa użytkownika może mieć maksymalnie 20 znaków",
   }),
-  password: z.string().min(6).max(100, {
-    message: "Hasło musi mieć od 6 do 100 znaków",
+  password: z.string().min(6, {
+    message: "Hasło musi mieć co najmniej 6 znaków",
+  }).max(100, {
+    message: "Hasło może mieć maksymalnie 100 znaków",
   }),
   email: z.string().email({
     message: "Proszę podać prawidłowy adres email",
